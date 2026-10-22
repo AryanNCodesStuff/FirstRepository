@@ -188,14 +188,47 @@ dict, or dict.fromkeys(); use a list or a string to record the characters alread
 case-sensitive.
 Test it on: "programming" and "mississippi", which should give "progamin" and "misp".
 """
-d={}
-def remove_duplicates(text):
-    t=''
+# d={}
+# def remove_duplicates(text):
+#     t=''
+#     for ch in text:
+#         if ch in d.keys():
+#             d[ch]+=1
+#         else: 
+#             d[ch]=1
+#             t+=ch
+#     return t
+# print(remove_duplicates('mississippi'))
+
+"""
+find max using recursion
+"""
+
+def find_max(lst):
+    if len(lst) == 1:
+        return lst[0]
+
+    rest_max = find_max(lst[1:])
+
+    if lst[0] > rest_max:
+        return lst[0]
+    else:
+        return rest_max
+print(find_max([3, 7, 2, 9, 4]))
+
+input = 'Student ID is XX26. The Python (IC152) exam is scheduled on 25/09/2026 at 10:00 AM in ROOM-YY.'
+input=input.split(' ')
+input=''.join(input)
+def count(text):
+    d={}
     for ch in text:
         if ch in d.keys():
             d[ch]+=1
         else: 
             d[ch]=1
-            t+=ch
-    return t
-print(remove_duplicates('mississippi'))
+    r,s=0,''
+    for i in d.keys():
+        if d[i]>r:
+            r,s=d[i],i
+    return s
+print(count(input))
