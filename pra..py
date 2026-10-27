@@ -216,6 +216,7 @@ def find_max(lst):
         return rest_max
 print(find_max([3, 7, 2, 9, 4]))
 
+"""count number of occurrences of each character in a string and return the character(s) with the maximum count."""
 input = 'Student ID is XX26. The Python (IC152) exam is scheduled on 25/09/2026 at 10:00 AM in ROOM-YY.'
 input=input.split(' ')
 input=''.join(input)
@@ -226,9 +227,10 @@ def count(text):
             d[ch]+=1
         else: 
             d[ch]=1
-    r,s=0,''
+    r,s=0,[]
     for i in d.keys():
         if d[i]>r:
-            r,s=d[i],i
+            r=d[i]
+            s.append(i)
     return s
 print(count(input))
